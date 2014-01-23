@@ -1,0 +1,121 @@
+<!doctype.html>
+	<html>
+		<head>
+
+		<style>
+
+	*{
+		border: none;
+		outline: none;
+		margin: 0;
+		transition: all .5s;
+	}
+	.flip-div, .flip-a, .flip-p {
+		perspective: 1000;
+
+	}
+
+	.flip-a:hover .flipper, .flip-a.hover .flipper {
+		transform: rotateY (180deg);
+	}
+
+	.flip-a, .flip-p, .flip-div, .front, .back {
+		width: 200px;
+		height: 200px;
+	}
+
+	.flipper {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		position: relative;
+	}
+
+	.front, .back {
+
+		backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.front {
+		z-index: 2;
+	}
+
+	.back {
+		transform: rotateY (180deg);
+	}
+
+	a{
+		height: 200px;
+		display: block;
+		background: pink url(ccake.png) no-repeat;
+		background-size: 100%;
+		width: 200px;
+	}
+
+	a:hover, {
+		opacity: .3;
+	}
+
+	
+	p {
+		height: 200px;
+		display: block;
+		background: url(http://s3-media3.ak.yelpcdn.com/bphoto/XhrKb98GRHFZyuzFHAKtZA/l.jpg) no-repeat;
+		background-size: 100%;
+		width: 200px;
+		opacity: 0;
+	}
+
+	div:hover p, div:focus p, div:active p {
+		opacity: 1;
+	}
+
+	div {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		border: 8px solid transparent;
+		transform: rotateY(180deg);
+	}
+
+	a, p {
+		position: absolute;
+	}
+</style>
+
+</head>
+
+	<body>
+
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	<div class="flipper">
+		<div class="front">
+			<!-- front content -->
+		</div>
+		<div class="back">
+			<!-- back content -->
+		</div>
+	</div>
+</div>
+
+
+ <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	<a href="#"></a>
+	<p></p>
+</div>
+
+
+
+
+<script>
+	document.getElementsByTagName('div')[0].addEventListener('touchstart', function(){
+		this.style.border = '8px solid brown';
+	});
+
+	document.getElementsByTagName('div')[0].addEventListener('touchend', function(){
+		this.style.border = '8px solid transparent';
+	});
+
+</script>
